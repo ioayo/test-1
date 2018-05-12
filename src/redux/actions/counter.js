@@ -1,7 +1,9 @@
+import * as types from '../types/counter';
+
 export const increment = () => ({
-    type: 'PLUS_ONE'
+    type: types.INCREMENT
 })
 
 export const decrement = () => ({
-    type: 'MINUS_ONE'
+    type: types.DECREMENT
 })

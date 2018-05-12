@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import store from '../redux/store';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import * as counterActions from '../redux/actions/counter';
 
 class App extends Component {
     render() {
+        const { counter } = this.props;
         return (
-            <Provider store={store}>
-                <div className="App">
-                    <button>+</button>
-                    <button>-</button>
-                </div>
-            </Provider>
+            <div className="App">
+                <button onClick={() => this.props.increment()}>+</button>
+                {counter}
+                <button onClick={() => this.props.decrement()}>-</button>
+            </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    counter: state.counter
+});
+
+const mapDispatchToProps = dispatch => ({
+    increment: () => dispatch(counterActions.increment()),
+    decrement: () => dispatch(counterActions.decrement())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
