@@ -1,22 +1,20 @@
-import * as actions from '../actions/counter';
+import * as actions from './counter';
 import * as types from '../types/counter';
 
 describe('counter actions', () => {
-    it('increment action', () => {
+    it('should create correct action on INCREMENT', () => {
         const expected = {
             type: types.INCREMENT
         }
 
-        expect(actions.increment()).toEqual(expected)
+        expect(actions.increment()).toEqual(expected);
     });
 
-    it('decrement action', () => {
+    it('should create correct actions on DECREMENT', () => {
         const expected = {
             type: types.DECREMENT
         }
 
-        expect(actions.decrement()).toEqual(expected)
-    });
-});
-
-
+    expect(actions.decrement()).toEqual(expected);
+    })
+})
